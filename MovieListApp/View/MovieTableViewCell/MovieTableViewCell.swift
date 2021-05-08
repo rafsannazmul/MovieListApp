@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieTableViewCell: UITableViewCell {
     
@@ -30,7 +31,8 @@ class MovieTableViewCell: UITableViewCell {
     
     func setData(posterImage : String, titleText : String, descriptionText : String){
         //posterImageView.downloaded(from: posterImage)
-        posterImageView.imageFromUrl(urlString: posterImage)
+        //posterImageView.imageFromUrl(urlString: posterImage)
+        posterImageView.sd_setImage(with: URL(string: posterImage), placeholderImage: #imageLiteral(resourceName: "notFound"))
         titleLabelView.text = titleText
         descriptionLabelView.text = descriptionText
         
