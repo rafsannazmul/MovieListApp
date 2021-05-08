@@ -23,7 +23,6 @@ class MovieTableViewCell: UITableViewCell {
     func updateUI(){
         posterImageView.frame = CGRect(x: 0, y: 0, width: 60, height: 100)
         posterImageView.center = CGPoint(x: 5 + 30, y: self.frame.height/2)
-        posterImageView.backgroundColor = .green
         
         titleLabelView.frame = CGRect(x: posterImageView.frame.maxX + 5, y: 5, width: self.frame.width - (posterImageView.frame.width + 20), height: 30)
         descriptionLabelView.frame = CGRect(x: posterImageView.frame.maxX + 5, y: titleLabelView.frame.maxY + 5, width: self.frame.width - (posterImageView.frame.width + 20), height: self.frame.height - (5 + 30))
@@ -53,7 +52,7 @@ extension UIImageView {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 
-                DispatchQueue.main.async { /// execute on main thread
+                DispatchQueue.main.async {
                     self.image = UIImage(data: data)
                 }
             }
